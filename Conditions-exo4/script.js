@@ -10,17 +10,14 @@ while (continueInput) {
         alert("Operation cancelled.");
         result = "No result due to cancellation.";
         continueInput = false;
-    } else {
-<<<<<<< HEAD
-        // Convert input to numbers
-=======
->>>>>>> 24e946bb5e1ccca965296bb6747c64a8426dd51f
+    } else { 
         number1 = Number(number1);
         number2 = Number(number2);
 
         switch (operator) {
             case '+':
                 result = number1 + number2;
+                
                 break; 
             case '-':
                 result = number1 - number2;
