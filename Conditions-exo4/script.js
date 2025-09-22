@@ -11,32 +11,39 @@ while (continueInput) {
         result = "No result due to cancellation.";
         continueInput = false;
     } else {
-        // Convert input to numbers
         number1 = Number(number1);
         number2 = Number(number2);
 
         switch (operator) {
-            case '+':
+            case "+":
+                 
                 result = number1 + number2;
+        alert("result: " + result); 
                 break; 
-            case '-':
+            case "-":
                 result = number1 - number2;
+                alert("result: " + result); 
+
                 break;
 
-            case '*':
+            case "*":
                 result = number1 * number2;
+                alert("result: " + result);
                 break;
 
-            case '/':
+            case "/":
                 if (number2 === 0) {
                     result = "Division by zero is forbidden!";
+                    alert(result);
                 }  {
                     result = number1 / number2;
+                    alert("result: " + result);
                 }
                 break;
 
             default:
                 result = "Invalid operator. Please choose from +, -, *, /.";
+                alert(result);
                 break;
         }
         continueInput = false;
