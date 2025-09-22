@@ -56,7 +56,7 @@ while (continueInput) {
             alert(resultat);
             break;
         default:
-            alert("Compétence non reconnue. Veuillez réessayer.");
+            alert("Cette compétence n'existe pas.");
             break;
     }
 }
