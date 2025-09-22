@@ -4,7 +4,7 @@ while (continueInput) {
     let Compétences = prompt("Entry your Compétences :");
     let resultat;
 
-    if (Compétences === null || Compétences.toLowerCase() === "exit") {
+    if (Compétences === null || Compétences === "exit") {
         continueInput = false;
         alert("Goodbye!");
         break;
