@@ -11,6 +11,10 @@ while (continueInput) {
         result = "No result due to cancellation.";
         continueInput = false;
     } else {
+<<<<<<< HEAD
+        // Convert input to numbers
+=======
+>>>>>>> 24e946bb5e1ccca965296bb6747c64a8426dd51f
         number1 = Number(number1);
         number2 = Number(number2);
 
@@ -18,7 +22,6 @@ while (continueInput) {
             case "+":
                  
                 result = number1 + number2;
-        alert("result: " + result); 
                 break; 
             case "-":
                 result = number1 - number2;
