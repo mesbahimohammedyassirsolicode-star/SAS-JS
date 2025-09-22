@@ -11,7 +11,10 @@ while (continueInput) {
         result = "No result due to cancellation.";
         continueInput = false;
     } else {
+<<<<<<< HEAD
         // Convert input to numbers
+=======
+>>>>>>> 24e946bb5e1ccca965296bb6747c64a8426dd51f
         number1 = Number(number1);
         number2 = Number(number2);
 
@@ -39,7 +42,13 @@ while (continueInput) {
                 result = "Invalid operator. Please choose from +, -, *, /.";
                 break;
         }
+<<<<<<< HEAD
         continueInput = false;
     }
     alert("Result: " + result);
 }
+=======
+    }
+    alert("Result: " + result);
+}
+>>>>>>> 24e946bb5e1ccca965296bb6747c64a8426dd51f
