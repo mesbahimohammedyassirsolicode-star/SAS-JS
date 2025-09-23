@@ -1,11 +1,11 @@
-let continueInput = true;
 
-while (continueInput) {
+
+while (true) {
     let Compétences = prompt("Entry your Compétences :");
     let resultat;
 
     if (Compétences === null || Compétences === "exit") {
-        continueInput = false;
+       
         alert("Goodbye!");
         break;
     }
