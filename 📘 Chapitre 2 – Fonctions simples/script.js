@@ -2,5 +2,5 @@ function addition(a, b) {
   return a + b;
 }
 
-let somme = addition(8, 5);
-console.log("La somme est : " + somme);
+let somme = addition(5,8);
+alert("La somme est : " + somme);

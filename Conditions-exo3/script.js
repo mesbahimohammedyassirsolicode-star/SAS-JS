@@ -11,4 +11,4 @@ else if (nomber==6)alert("samedi")
     else if (nomber==7) alert("dimanche")
 else alert("Numéro invalide") 
 }
-        continueInput = false;
+       continueInput = false;

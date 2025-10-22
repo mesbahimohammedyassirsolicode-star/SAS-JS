@@ -1,5 +1,3 @@
-
-
 while (true) {
     let Compétences = prompt("Entry your Compétences :");
     let resultat;

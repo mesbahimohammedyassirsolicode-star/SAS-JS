@@ -4,6 +4,7 @@ if (note < 10) {
 } else {
     if (note <=12){
         alert("passable");
+        
 
     }else { 
         alert("bien") ;
