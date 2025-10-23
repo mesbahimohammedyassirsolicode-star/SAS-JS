@@ -7,6 +7,7 @@ let books = [
         {title:"The Lord of the Rings", author: "J.R.R. Tolkien", price: 150 },
 
 ] 
+//2.booklist 
 function bookslist(books){
   console.log("---The books list---");
   for (let i=0;i< books.length ; i++ )
@@ -14,13 +15,13 @@ function bookslist(books){
     
   
 }
+//3.showonlytitles
 function showTitlesOnly(books) {
  console.log("----BOOK TITLES ONLY----");
  for (let i =0 ;i< books.length;i++)
   console.log(books[i].title);
 } 
-
-
+//4.count the price
 function count() {
   console.log("---total price---"); 
   let count=0; 
@@ -29,7 +30,7 @@ count+=books[i].price;
 }
 console.log(count);
 }
-
+//5.show only overprice100
 function overprice(books) {
   console.log("---the books over 100");
   for (let i=0;i<books.length;i++){
