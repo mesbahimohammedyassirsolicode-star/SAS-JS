@@ -9,7 +9,7 @@ let bibliotheque = [
     {code: 8, title: "the interpretation of dreams", author: "Sigmund Freud", year: 1899, disponible: false, price: "250dh", image: "images/the-interpretation-of-dreams-50_900x.webp"},
     {code: 9, title: "The Muqaddimah", author: "Ibn Khaldun", year: 1377, disponible: true, price: "300dh", image: "images/the-muqaddimah.jpg"}
 ];
-
+//displaying books
 let databooks = document.querySelector(".databook");
 bibliotheque.forEach(book => {
     let card = document.createElement("div");
@@ -27,14 +27,16 @@ bibliotheque.forEach(book => {
     btnsupprimer.addEventListener("click", function() {
         card.remove();
     });
-    databooks.appendChild(card);
+   if(databooks){
+databooks.appendChild(card);
+   } ;
 });
+//statistics
 function totalbooks() {
     let total=0;
     for (let i = 0; i < bibliotheque.length; i++) {
         total = total + 1;
     }
-
     return total;
     }
     function nombreLivresDisponibles() {
