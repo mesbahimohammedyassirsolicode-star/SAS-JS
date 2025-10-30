@@ -1,4 +1,5 @@
 let bibliotheque = JSON.parse(sessionStorage.getItem('bibliotheque'));
+let sortAscending = true;
 
 // Initialize library if empty
 if (!bibliotheque) {
@@ -33,20 +34,38 @@ function displayBooks() {
         let card = document.createElement("div");
         card.classList.add("card");
         
+        // Create availability label/button
+        let availabilityHTML = book.disponible ? 
+            `<button class="btn-reserve" onclick="reserveBook(${book.code})">Réserver</button>` : 
+            '<span class="reserved-label">Réservé</span>';
+        
         card.innerHTML = ` 
             <div class="book-img" style="background-image: url('${book.image}')"></div>
             <h2>${book.title}</h2>
             <p><strong>Auteur:</strong> ${book.author}</p>
             <p><strong>Année:</strong> ${book.year}</p>
-            <p><strong>Disponible:</strong> ${book.disponible ? "Oui" : "Non"}</p>
             <p><strong>Prix:</strong> ${book.price}</p>
             <p><strong>Code:</strong> ${book.code}</p>
+            ${availabilityHTML}
             <button class="btn-supprimer" onclick="deleteBook(${book.code})">Supprimer</button>`;
         
         databooks.appendChild(card);
     }
     
     updateStatistics();
+    updateMostExpensiveBook();
+}
+
+// Function to reserve a book
+function reserveBook(code) {
+    for (let i = 0; i < bibliotheque.length; i++) {
+        if (bibliotheque[i].code === code) {
+            bibliotheque[i].disponible = false;
+            break;
+        }
+    }
+    saveLibrary();
+    displayBooks();
 }
 
 // Function to delete a book
@@ -84,6 +103,48 @@ function updateStatistics() {
     }
 }
 
+// Function to sort books
+function sortBooks() {
+    // Simple bubble sort implementation
+    for (let i = 0; i < bibliotheque.length - 1; i++) {
+        for (let j = 0; j < bibliotheque.length - i - 1; j++) {
+            let shouldSwap = sortAscending ? 
+                bibliotheque[j].title > bibliotheque[j + 1].title : 
+                bibliotheque[j].title < bibliotheque[j + 1].title;
+            
+            if (shouldSwap) {
+                // Swap books
+                let temp = bibliotheque[j];
+                bibliotheque[j] = bibliotheque[j + 1];
+                bibliotheque[j + 1] = temp;
+            }
+        }
+    }
+    
+    sortAscending = !sortAscending;
+    saveLibrary();
+    displayBooks();
+}
+
+// Function to find and display most expensive book
+function updateMostExpensiveBook() {
+    if (bibliotheque.length === 0) return;
+    
+    let mostExpensive = bibliotheque[0];
+    for (let i = 1; i < bibliotheque.length; i++) {
+        let currentPrice = parseInt(bibliotheque[i].price);
+        let maxPrice = parseInt(mostExpensive.price);
+        if (currentPrice > maxPrice) {
+            mostExpensive = bibliotheque[i];
+        }
+    }
+
+    let expensiveTitle = document.getElementById('expensiveBookTitle');
+    if (expensiveTitle) {
+        expensiveTitle.textContent = `${mostExpensive.title} (${mostExpensive.price})`;
+    }
+}
+
 // Search functionality
 function setupSearch() {
     let searchbar = document.getElementById('searchInput');
@@ -109,4 +170,10 @@ function setupSearch() {
 document.addEventListener('DOMContentLoaded', function() {
     displayBooks();
     setupSearch();
+    
+    // Add sort button listener if it exists
+    let sortButton = document.getElementById('sortButton');
+    if (sortButton) {
+        sortButton.addEventListener('click', sortBooks);
+    }
 });

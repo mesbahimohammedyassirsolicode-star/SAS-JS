@@ -35,6 +35,8 @@ form.addEventListener("submit", function(event) {
     let disponible = document.getElementById("disponible").checked;
     let imageInput = document.getElementById("image");
     
+    // Handle image - let user choose from available images
+    let imageUrl = "images/default-book.jpg";
     
     // Create new book object
     let newBook = {

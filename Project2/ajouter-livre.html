@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Livre - Bibliothèque Scolaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="ajouter-livre.html">ADD BOOK</a>
+                    <a href="catalog.html">Catalog</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+   <main>
+<div>
+      <form id="form">
+        <label>Code du livre</label>
+        <input type="number" id="code" name="code" required>
+         <label for="titre">Titre du livre *</label>
+            <input type="text" id="titre" name="titre" required>
+             <label for="auteur">Auteur *</label>
+            <input type="text" id="auteur" name="auteur" required>
+            <label for="annee">Année de publication *</label>
+            <input type="number" id="annee" name="annee" min="1000" max="2025" required>
+            <label for="prix">Prix (en dirhams) *</label>
+            <input type="number" id="prix" name="prix" min="0" step="1" required>
+            <label for="disponible">
+                <input type="checkbox" id="disponible" name="disponible" checked>
+                Livre disponible
+            </label>
+            <div>
+                <button type="submit" class="btn-primary">Ajouter le livre</button>
+                <button type="reset" class="btn-secondary">Effacer le formulaire</button>
+            </div>
+      </form>  
+    </div>
+   </main>
+    
+    <footer>
+        <p>&copy; 2024 Bibliothèque Scolaire - Tous droits réservés</p>
+    </footer>
+     <script src="add book.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

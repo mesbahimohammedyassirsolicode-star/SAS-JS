@@ -136,3 +136,70 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+/* Add these new styles */
+.reserved-label {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.btn-reserve {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.btn-reserve:hover {
+    background-color: #27ae60;
+}
+
+.most-expensive {
+    background-color: rgba(255, 255, 255, 0.534);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+/* Add these styles for the new buttons */
+.btn-reserve {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.btn-reserve:hover {
+    background-color: #219a52;
+}
+
+.reserved-label {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Style for most expensive book display */
+.expensive-book {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid #f39c12;
+}
