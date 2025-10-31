@@ -33,7 +33,6 @@ form.addEventListener("submit", function(event) {
     let annee = document.getElementById("annee").value;
     let prix = document.getElementById("prix").value;
     let disponible = document.getElementById("disponible").checked;
-    let imageInput = document.getElementById("image");
     
     
     // Create new book object
@@ -44,7 +43,6 @@ form.addEventListener("submit", function(event) {
         year: parseInt(annee),
         disponible: disponible,
         price: prix + "dh",
-        image: imageUrl
     };
     
     // Get current library from sessionStorage

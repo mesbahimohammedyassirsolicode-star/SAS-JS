@@ -44,8 +44,7 @@ function displayBooks() {
             <button class="btn-supprimer" onclick="deleteBook(${book.code})">Supprimer</button>`;
         
         databooks.appendChild(card);
-    }
-    
+    }  
     updateStatistics();
 }
 
