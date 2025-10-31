@@ -3,12 +3,13 @@ let todolist=document.getElementById("todolist");
 function todolistadd(){
     
     let todoinput=document.getElementById("todoinput");
-      if(input){
-    let li=document.createElement("li");
     let input =todoinput.value
+      if(input){ 
+    let li=document.createElement("li");
+    
     
     li.innerText=input;
-
+    
      todolist.appendChild(li);
   }
 }
