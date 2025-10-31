@@ -12,36 +12,21 @@ ul {
 }
 
 
-ul li:nth-child(1) {
-  color: blue;
+ul li:nth-child(odd) {
+  color: rgb(0, 0, 0);
   font-family: Arial;
 }
 
 
-ul li:nth-child(2) {
-  color: blue;
+ul li:nth-child(even) {
+  color: rgb(253, 16, 16);
   font-family: 'Courier New';
 }
 
-ul li:nth-child(3) {
-  color: green;
-  font-family: Georgia;
+
+body{
+  background-color: lightgoldenrodyellow;
 }
-
-ul li:nth-child(4) {
-  color: green;
-  font-family: Verdana;
-}
-
-ul li:nth-child(5) {
-  color: rgb(16, 143, 255);
-  font-family: Tahoma;
-}
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -49,10 +34,11 @@ ul li:nth-child(5) {
         Exercice 1
     </header>
     <main>
-        <ul id="todolist" >
+     
             <input type="text" id="todoinput" placeholder="Enter a task" required>
             <button id="add">Add Task</button>
-        </ul>
+
+         <ul id="todolist" >  </ul>
     </main>
     <script src="script.js"></script>
 </body>
