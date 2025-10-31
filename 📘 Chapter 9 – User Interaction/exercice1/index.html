@@ -4,13 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+ul {
+  list-style: none;
+  padding: 0;
+  font-size: 20px;
+}
+
+
+ul li:nth-child(1) {
+  color: blue;
+  font-family: Arial;
+}
+
+
+ul li:nth-child(2) {
+  color: blue;
+  font-family: 'Courier New';
+}
+
+ul li:nth-child(3) {
+  color: green;
+  font-family: Georgia;
+}
+
+ul li:nth-child(4) {
+  color: green;
+  font-family: Verdana;
+}
+
+ul li:nth-child(5) {
+  color: yellowgreen;
+  font-family: Tahoma;
+}
+
+
+
+
+
+    </style>
 </head>
 <body>
     <header>
         Exercice 1
     </header>
     <main>
-        <ul id="todolist">
+        <ul id="todolist" >
             <input type="text" id="todoinput" placeholder="Enter a task" required>
             <button id="add">Add Task</button>
         </ul>
