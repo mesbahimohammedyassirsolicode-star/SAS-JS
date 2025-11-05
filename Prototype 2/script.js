@@ -103,7 +103,6 @@ function setupSearch() {
         }
     });
 }
-
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', function() {
     displayBooks();

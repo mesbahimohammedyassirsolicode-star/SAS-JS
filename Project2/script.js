@@ -2,7 +2,6 @@ let bibliotheque = JSON.parse(sessionStorage.getItem('bibliotheque'));
 let sortAscending = true;
 
 // Initialize library if empty
-if (!bibliotheque) {
     bibliotheque = [
         {code: 1, title: "A Song of Ice and Fire", author: "George R. R. Martin", year: 1996, disponible: true, price: "100dh", image: "images/ice-song-and-fire.jpg"},
         {code: 2, title: "the prince", author: "Niccolo Machiavelli", year: 1532, disponible: true, price: "99dh", image: "images/the-prince.jpg"},
@@ -15,7 +14,7 @@ if (!bibliotheque) {
         {code: 9, title: "The Muqaddimah", author: "Ibn Khaldun", year: 1377, disponible: true, price: "300dh", image: "images/the-muqaddimah.jpg"}
     ];
     saveLibrary();
-}
+
 
 // Function to save library to sessionStorage
 function saveLibrary() {

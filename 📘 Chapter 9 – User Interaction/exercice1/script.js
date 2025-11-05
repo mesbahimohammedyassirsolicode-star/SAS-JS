@@ -1,20 +1,29 @@
-let todolist=document.getElementById("todolist");
+let todolist = document.getElementById("todolist");
+let add = document.getElementById("add");
+let todoinput = document.getElementById("todoinput");
 
-function todolistadd(){
+function todolistadd() {
+    let input = todoinput.value.trim(); // trim() removes extra spaces
     
-    let todoinput=document.getElementById("todoinput");
-    let input =todoinput.value
-      if(input){ 
-    let li=document.createElement("li");
-    
-    
-    li.innerText=input;
-    
-     todolist.appendChild(li);
-  }
+    if (input) { 
+        let li = document.createElement("li");
+        li.innerText = input;
+        todolist.appendChild(li);
+        
+        // Clear the input field after adding
+        todoinput.value = "";
+    } else {
+        alert("Please enter a task!");
+    }
 }
-let add = document.getElementById("add")
-add.addEventListener("click",function(){
-todolistadd()
-}
-)
+
+add.addEventListener("click", function() {
+    todolistadd();
+});
+
+// Bonus: Allow adding with Enter key
+todoinput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        todolistadd();
+    }
+});

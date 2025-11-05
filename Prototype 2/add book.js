@@ -11,7 +11,6 @@ function generateCode() {
     }
     return maxCode + 1;
 }
-
 // Auto-generate code when page loads
 document.addEventListener('DOMContentLoaded', function() {
     let codeInput = document.getElementById("code");
@@ -20,12 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
         codeInput.readOnly = true;
     }
 });
-
 let form = document.getElementById("form");
-
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-    
     // Get form values
     let code = document.getElementById("code").value;
     let titre = document.getElementById("titre").value;
