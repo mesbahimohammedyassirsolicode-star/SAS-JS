@@ -1,4 +1,4 @@
- let bibliotheque = JSON.parse(sessionStorage.getItem('bibliotheque'));
+let bibliotheque = JSON.parse(sessionStorage.getItem('bibliotheque'));
 let sortAscending = true;
 
 // Initialize library if empty
@@ -14,7 +14,6 @@ let sortAscending = true;
         {code: 9, title: "The Muqaddimah", author: "Ibn Khaldun", year: 1377, disponible: true, price: "300dh", image: "images/the-muqaddimah.jpg"}
     ];
     saveLibrary();
-
 
 // Function to save library to sessionStorage
 function saveLibrary() {
@@ -33,10 +32,8 @@ function displayBooks() {
         let card = document.createElement("div");
         card.classList.add("card");
         
-        // Create availability label/button
-        let availabilityHTML = book.disponible ? 
-            `<button class="btn-reserve" onclick="reserveBook(${book.code})">Réserver</button>` : 
-            '<span class="reserved-label">Réservé</span>';
+        // Create availability label only (no button)
+        let availabilityHTML = book.disponible ? '<span class="available-label">Disponible</span>':"non disponible"
         
         card.innerHTML = ` 
             <div class="book-img" style="background-image: url('${book.image}')"></div>
@@ -55,17 +52,7 @@ function displayBooks() {
     updateMostExpensiveBook();
 }
 
-// Function to reserve a book
-function reserveBook(code) {
-    for (let i = 0; i < bibliotheque.length; i++) {
-        if (bibliotheque[i].code === code) {
-            bibliotheque[i].disponible = false;
-            break;
-        }
-    }
-    saveLibrary();
-    displayBooks();
-}
+
 
 // Function to delete a book
 function deleteBook(code) {
