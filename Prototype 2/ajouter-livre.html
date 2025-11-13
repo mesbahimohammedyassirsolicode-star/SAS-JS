@@ -3,49 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un Livre - Bibliothèque Scolaire</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="ajouter-livre.html">ADD BOOK</a>
-                    <a href="catalog.html">Catalog</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-   <main>
-<div>
-      <form id="form">
-        <label>Code du livre</label>
-        <input type="number" id="code" name="code" required>
-         <label for="titre">Titre du livre *</label>
-            <input type="text" id="titre" name="titre" required>
-             <label for="auteur">Auteur *</label>
-            <input type="text" id="auteur" name="auteur" required>
-            <label for="annee">Année de publication *</label>
-            <input type="number" id="annee" name="annee" min="1000" max="2025" required>
-            <label for="prix">Prix (en dirhams) *</label>
-            <input type="number" id="prix" name="prix" min="0" step="1" required>
-            <label for="disponible">
-                <input type="checkbox" id="disponible" name="disponible" checked>
-                Livre disponible
-            </label>
-            <div>
-                <button type="submit" class="btn-primary">Ajouter le livre</button>
-                <button type="reset" class="btn-secondary">Effacer le formulaire</button>
-            </div>
-      </form>  
-    </div>
-   </main>
-    
-    <footer>
-        <p>&copy; 2024 Bibliothèque Scolaire - Tous droits réservés</p>
-    </footer>
-     <script src="add book.js"></script>
-    <script src="script.js"></script>
+    <a href="index.html">Acceuil</a>
+    <form id="form">
+        <label for="titre">Titre</label>
+        <input type="text" id="titre">
+
+        <label for="auteur">Auteur</label>
+        <input type="text" id="auteur">
+
+        <label for="code">Code</label>
+        <input type="text" id="code">
+
+        <label for="prix">Prix</label>
+        <input type="text" id="prix">
+
+        <label for="annee">Annee</label>
+        <input type="text" id="annee">
+
+        <label for="disponible">Disponible</label>
+        <input type="checkbox" id="disponible">
+
+        <button id="btn_ajouter">Ajouter</button>
+
+    </form>
+    <ul id="errors">
+
+    </ul> 
+    <script>
+
+         let btn_ajouter =document.getElementById("btn_ajouter")
+         btn_ajouter.addEventListener("click" , function(e){
+            e.preventDefault();
+
+         
+        
+let titre = document.getElementById("titre")
+let auteur = document.getElementById("auteur")
+let code = document.getElementById("code")
+let prix = document.getElementById("prix")
+let annee = document.getElementById("annee")
+let disponible = document.getElementById("disponible")
+let errorText =document.getElementById("errors")
+
+
+if(titre.value !== "" && auteur.value !== "" &&  !isNaN(code.value) && !isNaN(prix.value) && !isNaN(annee.value>2000)){
+
+
+    let Book = {
+        titre: titre.value,
+        auteur: auteur.value,
+        code: code.value,
+        prix: prix.value,
+        annee: annee.value,
+        disponible: disponible.checked,
+
+    }
+
+bibliotheque.push(Book)
+localStorage.setItem("bibliotheque", JSON.stringify (bibliotheque));
+
+
+}else{ if(titre.value=="" ){
+    let error = document.createElement("li");
+    error.innerText="tittle is empty"
+    errorText.appendChild(error)
+
+}if(auteur.value=="" ){
+    let error = document.createElement("li");
+    error.innerText="auteur is empty"
+    errorText.appendChild(error) 
+
+}if(isNaN(code.value) || code.value =="" ){
+    let error = document.createElement("li");
+    error.innerText="code is not a number or empty"
+    errorText.appendChild(error) 
+
+}if(isNaN(prix.value) || prix.value ==""  ){
+    let error = document.createElement("li");
+    error.innerText="prix is  not a numbre or empty"
+    errorText.appendChild(error) 
+
+}if(isNaN(annee.value) || annee.value<=2000 ){
+    let error = document.createElement("li");
+    error.innerText="anne is not a numbre  and less than 2000  or empty"
+    errorText.appendChild(error) 
+}
+
+}
+});
+    </script>
 </body>
 </html>

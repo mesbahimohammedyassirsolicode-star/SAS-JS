@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html">Acceuil</a>
+    <form id="form">
+        <label for="titre">Titre</label>
+        <input type="text" id="titre">
+
+        <label for="auteur">Auteur</label>
+        <input type="text" id="auteur">
+
+        <label for="code">Code</label>
+        <input type="text" id="code">
+
+        <label for="prix">Prix</label>
+        <input type="text" id="prix">
+
+        <label for="annee">Annee</label>
+        <input type="text" id="annee">
+
+        <label for="disponible">Disponible</label>
+        <input type="checkbox" id="disponible">
+
+        <button>Ajouter</button>
+    </form>
+    <script>
+let titre = document.getElementById("titre")
+let auteur = document.getElementById("auteur")
+let code = document.getElementById("code")
+let prix = document.getElementById("prix")
+let annee = document.getElementById("annee")
+let disponible = document.getElementById("disponible")
+
+if(titre.value !== "" && auteur.value && !isNaN(code.value) && !isNaN(prix.value) && !isNaN(annee.value) && annee.value>=2000  ){
+}
+let book={
+    titre:titre.value,
+    auteur:auteur.value,
+    code:code.value,
+    prix:prix.value,
+    annee:annee.value,
+    disponible:disponible.checked
+}
+    bibliotheque.push(book);
+    localStorage.setItem(`bibliotheque`,JSON.stringify(bibliotheque));
+    </script>
+</body>
+</html>

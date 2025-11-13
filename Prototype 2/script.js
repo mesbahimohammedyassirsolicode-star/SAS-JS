@@ -1,7 +1,8 @@
 let bibliotheque = JSON.parse(sessionStorage.getItem('bibliotheque'));
 let sortAscending = true;
 
-// Initialize library if empty
+// Initialize library ONLY if empty
+if (!bibliotheque || bibliotheque.length === 0) {
     bibliotheque = [
         {code: 1, title: "A Song of Ice and Fire", author: "George R. R. Martin", year: 1996, disponible: true, price: "100dh", image: "images/ice-song-and-fire.jpg"},
         {code: 2, title: "the prince", author: "Niccolo Machiavelli", year: 1532, disponible: true, price: "99dh", image: "images/the-prince.jpg"},
@@ -14,13 +15,14 @@ let sortAscending = true;
         {code: 9, title: "The Muqaddimah", author: "Ibn Khaldun", year: 1377, disponible: true, price: "300dh", image: "images/the-muqaddimah.jpg"}
     ];
     saveLibrary();
+}
 
 // Function to save library to sessionStorage
 function saveLibrary() {
     sessionStorage.setItem('bibliotheque', JSON.stringify(bibliotheque));
 }
 
-// Function to display books (SINGLE VERSION)
+// Function to display books
 function displayBooks() {
     let databooks = document.querySelector(".databook");
     if (!databooks) return;
@@ -32,8 +34,10 @@ function displayBooks() {
         let card = document.createElement("div");
         card.classList.add("card");
         
-        // Create availability label only (no button)
-        let availabilityHTML = book.disponible ? '<span class="available-label">Disponible</span>':"non disponible"
+        // Create availability label
+        let availabilityHTML = book.disponible ? 
+            '<span class="available-label">Disponible</span>' : 
+            '<span class="reserved-label">Réservé</span>';
         
         card.innerHTML = ` 
             <div class="book-img" style="background-image: url('${book.image}')"></div>
@@ -51,8 +55,6 @@ function displayBooks() {
     updateStatistics();
     updateMostExpensiveBook();
 }
-
-
 
 // Function to delete a book
 function deleteBook(code) {
@@ -91,7 +93,6 @@ function updateStatistics() {
 
 // Function to sort books
 function sortBooks() {
-    // Simple bubble sort implementation
     for (let i = 0; i < bibliotheque.length - 1; i++) {
         for (let j = 0; j < bibliotheque.length - i - 1; j++) {
             let shouldSwap = sortAscending ? 
@@ -99,7 +100,6 @@ function sortBooks() {
                 bibliotheque[j].title < bibliotheque[j + 1].title;
             
             if (shouldSwap) {
-                // Swap books
                 let temp = bibliotheque[j];
                 bibliotheque[j] = bibliotheque[j + 1];
                 bibliotheque[j + 1] = temp;
@@ -157,7 +157,6 @@ document.addEventListener('DOMContentLoaded', function() {
     displayBooks();
     setupSearch();
     
-    // Add sort button listener if it exists
     let sortButton = document.getElementById('sortButton');
     if (sortButton) {
         sortButton.addEventListener('click', sortBooks);
